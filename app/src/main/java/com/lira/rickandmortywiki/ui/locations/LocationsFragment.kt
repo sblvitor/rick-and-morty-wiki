@@ -1,4 +1,4 @@
-package com.lira.rickandmortywiki.ui.dashboard
+package com.lira.rickandmortywiki.ui.locations
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,13 +8,13 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import com.lira.rickandmortywiki.R
-import com.lira.rickandmortywiki.databinding.FragmentDashboardBinding
+import com.lira.rickandmortywiki.databinding.FragmentLocationsBinding
+import com.lira.rickandmortywiki.presentation.LocationsViewModel
 
-class DashboardFragment : Fragment() {
+class LocationsFragment : Fragment() {
 
-    private lateinit var dashboardViewModel: DashboardViewModel
-    private var _binding: FragmentDashboardBinding? = null
+    private lateinit var locationsViewModel: LocationsViewModel
+    private var _binding: FragmentLocationsBinding? = null
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -25,14 +25,14 @@ class DashboardFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        dashboardViewModel =
-            ViewModelProvider(this).get(DashboardViewModel::class.java)
+        locationsViewModel =
+            ViewModelProvider(this).get(LocationsViewModel::class.java)
 
-        _binding = FragmentDashboardBinding.inflate(inflater, container, false)
+        _binding = FragmentLocationsBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
         val textView: TextView = binding.textDashboard
-        dashboardViewModel.text.observe(viewLifecycleOwner, Observer {
+        locationsViewModel.text.observe(viewLifecycleOwner, Observer {
             textView.text = it
         })
         return root

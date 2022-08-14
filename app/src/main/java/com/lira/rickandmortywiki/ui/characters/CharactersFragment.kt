@@ -1,4 +1,4 @@
-package com.lira.rickandmortywiki.ui.home
+package com.lira.rickandmortywiki.ui.characters
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,13 +8,13 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import com.lira.rickandmortywiki.R
-import com.lira.rickandmortywiki.databinding.FragmentHomeBinding
+import com.lira.rickandmortywiki.databinding.FragmentCharactersBinding
+import com.lira.rickandmortywiki.presentation.CharactersViewModel
 
-class HomeFragment : Fragment() {
+class CharactersFragment : Fragment() {
 
-    private lateinit var homeViewModel: HomeViewModel
-    private var _binding: FragmentHomeBinding? = null
+    private lateinit var charactersViewModel: CharactersViewModel
+    private var _binding: FragmentCharactersBinding? = null
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -25,14 +25,14 @@ class HomeFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        homeViewModel =
-            ViewModelProvider(this).get(HomeViewModel::class.java)
+        charactersViewModel =
+            ViewModelProvider(this).get(CharactersViewModel::class.java)
 
-        _binding = FragmentHomeBinding.inflate(inflater, container, false)
+        _binding = FragmentCharactersBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
         val textView: TextView = binding.textHome
-        homeViewModel.text.observe(viewLifecycleOwner, Observer {
+        charactersViewModel.text.observe(viewLifecycleOwner, Observer {
             textView.text = it
         })
         return root

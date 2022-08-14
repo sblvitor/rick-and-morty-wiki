@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Rick and Morty Wiki</string>
+
+    <string name="title_characters">Personagens</string>
+    <string name="title_locations">Localizações</string>
+    <string name="title_episodes">Episódios</string>
+
+</resources>
