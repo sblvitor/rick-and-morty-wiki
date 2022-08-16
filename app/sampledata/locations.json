@@ -1,0 +1,25 @@
+{
+  "data": [
+    {
+      "id": 1,
+      "name": "Earth (C-137)",
+      "type": "Planet",
+      "dimension": "Dimension C-137",
+      "url": "https://rickandmortyapi.com/api/location/1"
+    },
+    {
+      "id": 2,
+      "name": "Abadango",
+      "type": "Cluster",
+      "dimension": "Unknown",
+      "url": "https://rickandmortyapi.com/api/location/2"
+    },
+    {
+      "id": 3,
+      "name": "Citadel of Ricks",
+      "type": "Space station",
+      "dimension": "Unknown",
+      "url": "https://rickandmortyapi.com/api/location/3"
+    }
+  ]
+}

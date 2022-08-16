@@ -1,0 +1,25 @@
+{
+  "data": [
+    {
+      "id": 1,
+      "name": "Pilot",
+      "air_date": "December 2, 2013",
+      "episode": "S01E01",
+      "url": "https://rickandmortyapi.com/api/episode/1"
+    },
+    {
+      "id": 2,
+      "name": "Lawnmower Dog",
+      "air_date": "December 9, 2013",
+      "episode": "S01E02",
+      "url": "https://rickandmortyapi.com/api/episode/2"
+    },
+    {
+      "id": 3,
+      "name": "Anatomy Park",
+      "air_date": "December 16, 2013",
+      "episode": "S01E03",
+      "url": "https://rickandmortyapi.com/api/episode/3"
+    }
+  ]
+}
