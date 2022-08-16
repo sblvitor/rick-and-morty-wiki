@@ -7,5 +7,8 @@
     <string name="title_locations">Localizações</string>
     <string name="title_episodes">Episódios</string>
     <string name="txt_search">Buscar</string>
+    <string name="cd_character_image">Imagem do personagem</string>
+    <string name="txt_last_known_location">Última localização conhecida:</string>
+    <string name="txt_first_seen_in">Visto pela primeira vez em:</string>
 
 </resources>

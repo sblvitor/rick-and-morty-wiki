@@ -17,4 +17,7 @@
     <color name="darkColorError">#CF6679</color>
 
     <color name="lightColorError">#B00020</color>
+
+    <color name="dead">#D63D2E</color>
+    <color name="alive">#55CC44</color>
 </resources>
