@@ -6,5 +6,6 @@
     <string name="title_characters">Personagens</string>
     <string name="title_locations">Localizações</string>
     <string name="title_episodes">Episódios</string>
+    <string name="txt_search">Buscar</string>
 
 </resources>
