@@ -1,6 +1,6 @@
 package com.lira.rickandmortywiki.data.model.character
 
-data class Character(
+data class Result(
     val id: Long,
     val name: String,
     val status: String,
