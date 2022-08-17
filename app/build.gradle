@@ -58,13 +58,14 @@ dependencies {
 
     //Koin
     implementation "io.insert-koin:koin-android:3.2.0"
-    //implementation "io.insert-koin:koin-android-ext:3.2.0"
+    //implementation "io.insert-koin:koin-android-ext:3.0.1"
 
     //Coroutines
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.1'
 
     //glide
     implementation 'com.github.bumptech.glide:glide:4.13.0'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.13.0'
 
     testImplementation 'junit:junit:4.+'

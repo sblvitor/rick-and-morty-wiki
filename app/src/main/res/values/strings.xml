@@ -5,10 +5,13 @@
     <string name="title_characters">Characters</string>
     <string name="title_locations">Locations</string>
     <string name="title_episodes">Episodes</string>
+    <string name="title_character_detail">Character Detail</string>
     <string name="txt_search">Search</string>
     <string name="cd_character_image">Character image</string>
     <string name="txt_last_known_location">Last known location:</string>
     <string name="txt_first_seen_in">First seen in:</string>
     <string name="txt_slash" translatable="false">-</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>

@@ -1,17 +1,18 @@
 package com.lira.rickandmortywiki.data.services
 
-import com.lira.rickandmortywiki.data.model.character.Character
+import com.lira.rickandmortywiki.data.model.character.CharacterList
+import retrofit2.Response
 import retrofit2.http.GET
 
 interface RickAndMortyService {
 
-    @GET("/character")
-    suspend fun listCharacters(): List<Character>
+    @GET("character")
+    suspend fun listCharacters(): Response<CharacterList>
 
-    @GET("/location")
+    @GET("location")
     suspend fun listLocations()
 
-    @GET("/episode")
+    @GET("episode")
     suspend fun listEpisodes()
 
 }

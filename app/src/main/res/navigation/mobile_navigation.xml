@@ -9,7 +9,11 @@
         android:id="@+id/navigation_characters"
         android:name="com.lira.rickandmortywiki.ui.characters.CharactersFragment"
         android:label="@string/title_characters"
-        tools:layout="@layout/fragment_characters" />
+        tools:layout="@layout/fragment_characters" >
+        <action
+            android:id="@+id/action_navigation_characters_to_characterDetailFragment"
+            app:destination="@id/characterDetailFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_locations"
@@ -22,4 +26,10 @@
         android:name="com.lira.rickandmortywiki.ui.episodes.EpisodesFragment"
         android:label="@string/title_episodes"
         tools:layout="@layout/fragment_episodes" />
+
+    <fragment
+        android:id="@+id/characterDetailFragment"
+        android:name="com.lira.rickandmortywiki.CharacterDetailFragment"
+        android:label="@string/title_character_detail"
+        tools:layout="@layout/fragment_character_detail" />
 </navigation>

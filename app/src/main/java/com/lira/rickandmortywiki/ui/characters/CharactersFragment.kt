@@ -3,22 +3,24 @@ package com.lira.rickandmortywiki.ui.characters
 import android.os.Bundle
 import android.util.Log
 import android.view.*
-import android.widget.TextView
 import androidx.appcompat.widget.SearchView
 import androidx.core.view.MenuHost
 import androidx.core.view.MenuProvider
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Lifecycle
-import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
 import com.lira.rickandmortywiki.R
+import com.lira.rickandmortywiki.core.createProgressDialog
+import com.lira.rickandmortywiki.core.hideSoftKeyboard
 import com.lira.rickandmortywiki.databinding.FragmentCharactersBinding
 import com.lira.rickandmortywiki.presentation.CharactersViewModel
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 
 class CharactersFragment : Fragment() {
 
-    private lateinit var charactersViewModel: CharactersViewModel
+    private val dialog by lazy { createProgressDialog() }
+    private val charactersViewModel by viewModel<CharactersViewModel>()
+    private val adapter by lazy { CharacterAdapter() }
     private var _binding: FragmentCharactersBinding? = null
 
     // This property is only valid between onCreateView and
@@ -29,15 +31,27 @@ class CharactersFragment : Fragment() {
 
         setupMenu()
 
-        charactersViewModel = ViewModelProvider(this)[CharactersViewModel::class.java]
+        //charactersViewModel = ViewModelProvider(this)[CharactersViewModel::class.java]
 
         _binding = FragmentCharactersBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        /*val textView: TextView = binding.textHome
-        charactersViewModel.text.observe(viewLifecycleOwner, Observer {
-            textView.text = it
-        })*/
+        binding.rvCharacters.adapter = adapter
+
+        charactersViewModel.getAllCharactersList()
+        charactersViewModel.characters.observe(viewLifecycleOwner) {
+            when(it) {
+                CharactersViewModel.State.Loading -> dialog.show()
+                is CharactersViewModel.State.Error -> {
+                    dialog.dismiss()
+                }
+                is CharactersViewModel.State.Success -> {
+                    dialog.dismiss()
+                    adapter.submitList(it.list.body()!!.results)
+                }
+            }
+        }
+
         return root
     }
 
@@ -57,6 +71,7 @@ class CharactersFragment : Fragment() {
 
             override fun onQueryTextSubmit(query: String?): Boolean {
                 Log.e(TAG, "onQueryTextSubmit: $query")
+                binding.root.hideSoftKeyboard()
                 return true
             }
 

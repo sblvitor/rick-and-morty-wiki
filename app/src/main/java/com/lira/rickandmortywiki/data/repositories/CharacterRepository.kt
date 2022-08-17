@@ -1,8 +1,9 @@
 package com.lira.rickandmortywiki.data.repositories
 
-import com.lira.rickandmortywiki.data.model.character.Character
+import com.lira.rickandmortywiki.data.model.character.CharacterList
 import kotlinx.coroutines.flow.Flow
+import retrofit2.Response
 
 interface CharacterRepository {
-    suspend fun listCharacters(): Flow<List<Character>>
+    suspend fun listCharacters(): Flow<Response<CharacterList>>
 }

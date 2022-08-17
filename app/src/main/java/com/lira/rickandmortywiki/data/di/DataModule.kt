@@ -27,7 +27,7 @@ object DataModule {
             // Instância do HttpClient pro Koin prover
             single {
                 val interceptor = HttpLoggingInterceptor {
-                    Log.d(OK_HTTP, it)
+                    Log.e(OK_HTTP, it)
                 }
                 interceptor.level = HttpLoggingInterceptor.Level.BODY
 
@@ -55,7 +55,7 @@ object DataModule {
 
     private inline fun <reified T> createService(client: OkHttpClient, factory: GsonConverterFactory): T {
         return Retrofit.Builder()
-            .baseUrl("https://rickandmortyapi.com/api")
+            .baseUrl("https://rickandmortyapi.com/api/")
             .client(client)
             .addConverterFactory(factory)
             .build().create(T::class.java)
