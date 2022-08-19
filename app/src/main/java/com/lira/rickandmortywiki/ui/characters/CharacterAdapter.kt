@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.lira.rickandmortywiki.R
+import com.lira.rickandmortywiki.core.translateResponseText
 import com.lira.rickandmortywiki.data.model.character.Character
 import com.lira.rickandmortywiki.databinding.ItemCharacterBinding
 
@@ -33,7 +34,7 @@ class CharacterAdapter: ListAdapter<Character, CharacterAdapter.ViewHolder>(Diff
                 "Dead" -> binding.ivStatus.setImageResource(R.drawable.dot_indicator_dead)
                 else -> binding.ivStatus.setImageResource(R.drawable.dot_indicator_unknown)
             }
-            binding.tvStatus.text = item.status
+            binding.tvStatus.text = itemView.context.resources.getString(translateResponseText(item.status))
 
             Glide
                 .with(binding.root.context)

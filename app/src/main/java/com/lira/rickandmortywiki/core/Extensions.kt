@@ -1,12 +1,10 @@
 package com.lira.rickandmortywiki.core
 
 import android.app.Activity
-import android.content.Context
 import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.ProgressBar
 import androidx.appcompat.app.AlertDialog
-import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.textfield.TextInputLayout
@@ -32,12 +30,21 @@ fun Fragment.createDialog(block: MaterialAlertDialogBuilder.() -> Unit = {}): Al
 
 fun Fragment.createProgressDialog(): AlertDialog {
     return createDialog {
-        val padding = this@createProgressDialog.resources.getDimensionPixelOffset(R.dimen.default_layout_padding)
+        val padding = this@createProgressDialog.resources.getDimensionPixelOffset(R.dimen.padding_default)
         val progressBar = ProgressBar(activity)
         progressBar.setPadding(padding, padding, padding, padding)
         setView(progressBar)
 
         setPositiveButton(null, null)
         setCancelable(false)
+    }
+}
+
+fun translateResponseText(text: String): Int {
+    return when(text){
+        "Alive" -> R.string.response_alive
+        "Dead" -> R.string.response_dead
+        "unknown" -> R.string.response_unknown
+        else -> R.string.blank
     }
 }

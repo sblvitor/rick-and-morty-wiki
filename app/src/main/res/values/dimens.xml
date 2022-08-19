@@ -1,7 +1,7 @@
 <resources>
 
-    <dimen name="default_layout_padding">16dp</dimen>
-    <dimen name="half_default_layout_padding">8dp</dimen>
+    <dimen name="padding_default">16dp</dimen>
+    <dimen name="half_padding_default">8dp</dimen>
     <dimen name="navigation_icon_size">75dp</dimen>
     <dimen name="card_elevation_corner_radius">8dp</dimen>
     <dimen name="margin_default">16dp</dimen>

@@ -1,4 +1,4 @@
-package com.lira.rickandmortywiki
+package com.lira.rickandmortywiki.ui.characters
 
 import android.os.Bundle
 import android.view.LayoutInflater

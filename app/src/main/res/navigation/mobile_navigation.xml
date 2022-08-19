@@ -29,7 +29,7 @@
 
     <fragment
         android:id="@+id/characterDetailFragment"
-        android:name="com.lira.rickandmortywiki.CharacterDetailFragment"
+        android:name="com.lira.rickandmortywiki.ui.characters.CharacterDetailFragment"
         android:label="@string/title_character_detail"
         tools:layout="@layout/fragment_character_detail" />
 </navigation>
