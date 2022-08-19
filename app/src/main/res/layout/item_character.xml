@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="@dimen/cv_height"
     android:elevation="@dimen/card_elevation_corner_radius"
     app:cardBackgroundColor="?attr/colorSurface"
     app:cardCornerRadius="@dimen/card_elevation_corner_radius"
@@ -15,118 +15,62 @@
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/ivCharacterImage"
-            android:layout_width="@dimen/iv_size"
-            android:layout_height="@dimen/iv_size"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:contentDescription="@string/cd_character_image"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:srcCompat="@tools:sample/avatars" />
 
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/tvCharacterName"
-            android:layout_width="0dp"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/half_margin_default"
-            android:layout_marginTop="@dimen/half_margin_default"
-            android:layout_marginEnd="@dimen/half_margin_default"
-            android:textColor="?attr/colorOnSurface"
-            android:textSize="18sp"
-            android:textStyle="bold"
+            android:background="@color/green_blue"
+            android:padding="@dimen/double_half_margin_default"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/ivCharacterImage"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:text="Rick Sanchez" />
+            app:layout_constraintStart_toStartOf="parent">
 
-        <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/ivStatus"
-            android:layout_width="10dp"
-            android:layout_height="10dp"
-            android:layout_marginTop="8dp"
-            app:layout_constraintStart_toStartOf="@id/tvCharacterName"
-            app:layout_constraintTop_toBottomOf="@id/tvCharacterName"
-            app:srcCompat="@drawable/dot_indicator" />
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvCharacterName"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/half_margin_default"
+                android:layout_marginEnd="@dimen/half_margin_default"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Rick Sanchez" />
 
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/tvStatus"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="4dp"
-            android:layout_marginEnd="@dimen/half_margin_default"
-            android:textColor="?attr/colorOnSurface"
-            app:layout_constraintBottom_toBottomOf="@id/ivStatus"
-            app:layout_constraintStart_toEndOf="@id/ivStatus"
-            app:layout_constraintTop_toTopOf="@id/ivStatus"
-            tools:text="Alive" />
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/ivStatus"
+                android:layout_width="10dp"
+                android:layout_height="10dp"
+                android:layout_marginTop="@dimen/double_half_margin_default"
+                app:layout_constraintStart_toStartOf="@id/tvCharacterName"
+                app:layout_constraintTop_toBottomOf="@id/tvCharacterName"
+                tools:src="@drawable/dot_indicator_alive" />
 
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/tvSlash"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="4dp"
-            android:text="@string/txt_slash"
-            android:textColor="?attr/colorOnSurface"
-            app:layout_constraintBottom_toBottomOf="@id/ivStatus"
-            app:layout_constraintStart_toEndOf="@id/tvStatus"
-            app:layout_constraintTop_toTopOf="@id/ivStatus" />
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvStatus"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/double_half_margin_default"
+                android:textColor="@color/white"
+                app:layout_constraintBottom_toBottomOf="@id/ivStatus"
+                app:layout_constraintStart_toEndOf="@id/ivStatus"
+                app:layout_constraintTop_toTopOf="@id/ivStatus"
+                tools:text="Alive" />
 
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/tvSpecie"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="4dp"
-            android:textColor="?attr/colorOnSurface"
-            app:layout_constraintBottom_toBottomOf="@id/ivStatus"
-            app:layout_constraintStart_toEndOf="@id/tvSlash"
-            app:layout_constraintTop_toTopOf="@id/ivStatus"
-            tools:text="Human" />
-
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/tvTxtLastLocation"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/half_margin_default"
-            android:layout_marginEnd="@dimen/half_margin_default"
-            android:text="@string/txt_last_known_location"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@id/tvCharacterName"
-            app:layout_constraintTop_toBottomOf="@id/tvSpecie" />
-
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/tvLastLocation"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:layout_marginEnd="@dimen/half_margin_default"
-            android:textColor="?attr/colorOnSurface"
-            android:textSize="16sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@id/tvCharacterName"
-            app:layout_constraintTop_toBottomOf="@id/tvTxtLastLocation"
-            tools:text="Citadel of Ricks" />
-
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/tvTxtFirstSeen"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/half_margin_default"
-            android:layout_marginEnd="@dimen/half_margin_default"
-            android:text="@string/txt_first_seen_in"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@id/tvCharacterName"
-            app:layout_constraintTop_toBottomOf="@id/tvLastLocation" />
-
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/tvFirstEpisode"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:layout_marginEnd="@dimen/half_margin_default"
-            android:textColor="?attr/colorOnSurface"
-            android:textSize="16sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@id/tvCharacterName"
-            app:layout_constraintTop_toBottomOf="@id/tvTxtFirstSeen"
-            tools:text="Pilot" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

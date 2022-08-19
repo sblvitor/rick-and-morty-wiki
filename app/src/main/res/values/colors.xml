@@ -20,4 +20,8 @@
 
     <color name="dead">#D63D2E</color>
     <color name="alive">#55CC44</color>
+    <color name="unknown">#969696</color>
+
+    <color name="green_blue">#CC139991</color>
+
 </resources>

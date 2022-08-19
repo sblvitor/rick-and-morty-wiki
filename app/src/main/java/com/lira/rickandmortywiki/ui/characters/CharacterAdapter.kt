@@ -10,8 +10,6 @@ import com.bumptech.glide.Glide
 import com.lira.rickandmortywiki.R
 import com.lira.rickandmortywiki.data.model.character.Character
 import com.lira.rickandmortywiki.databinding.ItemCharacterBinding
-import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.FragmentManager
 
 
 class CharacterAdapter: ListAdapter<Character, CharacterAdapter.ViewHolder>(DiffCallback()) {
@@ -30,10 +28,12 @@ class CharacterAdapter: ListAdapter<Character, CharacterAdapter.ViewHolder>(Diff
 
         fun bind(item: Character){
             binding.tvCharacterName.text = item.name
+            when(item.status){
+                "Alive" -> binding.ivStatus.setImageResource(R.drawable.dot_indicator_alive)
+                "Dead" -> binding.ivStatus.setImageResource(R.drawable.dot_indicator_dead)
+                else -> binding.ivStatus.setImageResource(R.drawable.dot_indicator_unknown)
+            }
             binding.tvStatus.text = item.status
-            binding.tvSpecie.text = item.species
-            binding.tvLastLocation.text = item.location.name
-            binding.tvFirstEpisode.text = item.episode[0]
 
             Glide
                 .with(binding.root.context)
