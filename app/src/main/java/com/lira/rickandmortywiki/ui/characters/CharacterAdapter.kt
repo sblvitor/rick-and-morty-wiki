@@ -42,7 +42,8 @@ class CharacterAdapter: ListAdapter<Character, CharacterAdapter.ViewHolder>(Diff
                 .into(binding.ivCharacterImage)
 
             itemView.setOnClickListener { view ->
-                view.findNavController().navigate(R.id.characterDetailFragment)
+                val action = CharactersFragmentDirections.actionNavigationCharactersToCharacterDetailFragment(item)
+                view.findNavController().navigate(action)
             }
         }
     }

@@ -1,5 +1,9 @@
 package com.lira.rickandmortywiki.data.model.character
 
+import android.os.Parcelable
+import kotlinx.parcelize.Parcelize
+
+@Parcelize
 data class Character(
     val id: Long,
     val name: String,
@@ -10,4 +14,4 @@ data class Character(
     val location: Location,
     val image: String,
     val url: String
-)
+): Parcelable

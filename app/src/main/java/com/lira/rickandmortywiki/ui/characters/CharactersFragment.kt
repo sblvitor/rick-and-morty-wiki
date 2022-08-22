@@ -41,7 +41,10 @@ class CharactersFragment : Fragment() {
         charactersViewModel.getAllCharactersList()
         charactersViewModel.characters.observe(viewLifecycleOwner) {
             when(it) {
-                CharactersViewModel.State.Loading -> dialog.show()
+                CharactersViewModel.State.Loading -> {
+                    dialog.window?.setBackgroundDrawableResource(android.R.color.transparent)
+                    dialog.show()
+                }
                 is CharactersViewModel.State.Error -> {
                     dialog.dismiss()
                 }
