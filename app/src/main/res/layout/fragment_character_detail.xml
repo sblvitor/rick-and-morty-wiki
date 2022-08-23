@@ -1,15 +1,158 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.characterDetails.CharacterDetailFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <com.google.android.material.textview.MaterialTextView
         android:id="@+id/tvCharacterNameDetail"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_default"
+        android:layout_marginTop="@dimen/margin_default"
+        android:layout_marginEnd="@dimen/margin_default"
+        android:textColor="?attr/colorOnBackground"
+        android:textSize="@dimen/txt_character_name_size_details"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="@string/title_characters" />
 
-</FrameLayout>
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/tvStatusDetail"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/half_margin_default"
+        android:textSize="@dimen/txt_character_status_size_details"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/tvCharacterNameDetail"
+        app:layout_constraintTop_toBottomOf="@id/tvCharacterNameDetail"
+        tools:text="Alive" />
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/ivCharacterImageDetail"
+        android:layout_width="@dimen/circle_iv_size_details"
+        android:layout_height="@dimen/circle_iv_size_details"
+        android:layout_marginTop="@dimen/margin_default"
+        android:contentDescription="@string/cd_character_image"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvStatusDetail"
+        tools:src="@tools:sample/avatars" />
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin_default"
+        app:cardCornerRadius="@dimen/card_elevation_corner_radius"
+        app:cardElevation="@dimen/card_elevation_corner_radius"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ivCharacterImageDetail">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="@dimen/padding_default">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvEpisodesTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/half_margin_default"
+                android:text="@string/title_episodes"
+                app:layout_constraintEnd_toStartOf="@+id/tvEpisodesCount"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvEpisodesCount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="22" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvSpecie"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="?attr/colorOnSurface"
+                android:textSize="@dimen/txt_size_details"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Human" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvTxtSlash"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/half_margin_default"
+                android:text="@string/txt_slash"
+                app:layout_constraintBottom_toBottomOf="@id/tvSpecie"
+                app:layout_constraintStart_toEndOf="@id/tvSpecie"
+                app:layout_constraintTop_toTopOf="@id/tvSpecie" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvGender"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/half_margin_default"
+                android:textColor="?attr/colorOnSurface"
+                android:textSize="@dimen/txt_size_details"
+                app:layout_constraintBottom_toBottomOf="@id/tvSpecie"
+                app:layout_constraintStart_toEndOf="@+id/tvTxtSlash"
+                app:layout_constraintTop_toTopOf="@id/tvSpecie"
+                tools:text="Genderless" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvLocationTitle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_default"
+                android:text="@string/txt_last_known_location"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/tvSpecie"
+                app:layout_constraintTop_toBottomOf="@+id/tvSpecie" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvLocation"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/double_half_margin_default"
+                android:textColor="?attr/colorOnSurface"
+                android:textSize="@dimen/txt_size_details"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/tvSpecie"
+                app:layout_constraintTop_toBottomOf="@id/tvLocationTitle"
+                tools:text="Earth" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvOriginTitle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_default"
+                android:text="@string/txt_origin"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/tvSpecie"
+                app:layout_constraintTop_toBottomOf="@+id/tvLocation" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvOrigin"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/double_half_margin_default"
+                android:textColor="?attr/colorOnSurface"
+                android:textSize="@dimen/txt_size_details"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/tvSpecie"
+                app:layout_constraintTop_toBottomOf="@id/tvOriginTitle"
+                tools:text="Earth" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

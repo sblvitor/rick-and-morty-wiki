@@ -45,6 +45,10 @@ fun translateResponseText(text: String): Int {
         "Alive" -> R.string.response_alive
         "Dead" -> R.string.response_dead
         "unknown" -> R.string.response_unknown
+        "Human" -> R.string.response_human
+        "Male" -> R.string.response_male
+        "Female" -> R.string.response_female
+        "Genderless" -> R.string.response_genderless
         else -> R.string.blank
     }
 }

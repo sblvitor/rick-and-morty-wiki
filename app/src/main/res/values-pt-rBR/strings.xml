@@ -10,10 +10,14 @@
     <string name="txt_search">Buscar</string>
     <string name="cd_character_image">Imagem do personagem</string>
     <string name="txt_last_known_location">Última localização conhecida:</string>
-    <string name="txt_first_seen_in">Visto pela primeira vez em:</string>
     <string name="response_alive">Vivo</string>
     <string name="response_dead">Morto</string>
     <string name="response_unknown">Desconhecido</string>
     <string name="cd_next_page_button">Botão de próxima página</string>
+    <string name="txt_origin">Origem:</string>
+    <string name="response_human">Humano</string>
+    <string name="response_male">Macho</string>
+    <string name="response_female">Fêmea</string>
+    <string name="response_genderless">Sem genêro</string>
 
 </resources>

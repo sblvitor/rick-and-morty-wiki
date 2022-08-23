@@ -6,6 +6,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.navArgs
+import com.bumptech.glide.Glide
+import com.lira.rickandmortywiki.R
+import com.lira.rickandmortywiki.core.translateResponseText
 import com.lira.rickandmortywiki.databinding.FragmentCharacterDetailBinding
 
 
@@ -20,10 +23,8 @@ class CharacterDetailFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
         _binding = FragmentCharacterDetailBinding.inflate(inflater, container, false)
-        val root: View = binding.root
 
-
-        return root
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -33,6 +34,24 @@ class CharacterDetailFragment : Fragment() {
 
         binding.apply {
             tvCharacterNameDetail.text = character.name
+            tvStatusDetail.text = getString(translateResponseText(character.status))
+
+            Glide
+                .with(requireContext())
+                .load(character.image)
+                .into(ivCharacterImageDetail)
+
+            tvEpisodesCount.text = character.episode.size.toString()
+
+            var translatedText = translateResponseText(character.species)
+            tvSpecie.text = if(translatedText != R.string.blank) getString(translatedText) else character.species
+
+            tvLocation.text = character.location.name
+
+            translatedText = translateResponseText(character.origin.name)
+            tvOrigin.text = if(translatedText != R.string.blank) getString(translatedText) else character.origin.name
+
+            tvGender.text = getString(translateResponseText(character.gender))
         }
     }
 

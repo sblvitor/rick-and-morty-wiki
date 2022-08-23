@@ -9,14 +9,16 @@
     <string name="txt_search">Search</string>
     <string name="cd_character_image">Character image</string>
     <string name="txt_last_known_location">Last known location:</string>
-    <string name="txt_first_seen_in">First seen in:</string>
     <string name="txt_slash" translatable="false">-</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="response_alive">Alive</string>
     <string name="response_dead">Dead</string>
     <string name="response_unknown">Unknown</string>
     <string name="blank" translatable="false"> </string>
     <string name="cd_next_page_button">Next page button</string>
+    <string name="txt_origin">Origin:</string>
+    <string name="response_human">Human</string>
+    <string name="response_male">Male</string>
+    <string name="response_female">Female</string>
+    <string name="response_genderless">Genderless</string>
 
 </resources>

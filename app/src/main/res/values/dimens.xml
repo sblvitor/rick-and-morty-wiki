@@ -8,4 +8,8 @@
     <dimen name="half_margin_default">8dp</dimen>
     <dimen name="double_half_margin_default">4dp</dimen>
     <dimen name="cv_height">190dp</dimen>
+    <dimen name="txt_character_name_size_details">24sp</dimen>
+    <dimen name="txt_character_status_size_details">16sp</dimen>
+    <dimen name="circle_iv_size_details">280dp</dimen>
+    <dimen name="txt_size_details">18sp</dimen>
 </resources>
