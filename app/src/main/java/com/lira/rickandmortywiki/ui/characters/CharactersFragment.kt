@@ -74,6 +74,7 @@ class CharactersFragment : Fragment() {
 
             override fun onQueryTextSubmit(query: String?): Boolean {
                 Log.e(TAG, "onQueryTextSubmit: $query")
+                query?.let { charactersViewModel.getCharactersByName(it) }
                 binding.root.hideSoftKeyboard()
                 return true
             }

@@ -6,4 +6,6 @@ import retrofit2.Response
 
 interface CharacterRepository {
     suspend fun listCharacters(): Flow<Response<CharacterList>>
+
+    suspend fun listCharacterByName(name: String): Flow<Response<CharacterList>>
 }
