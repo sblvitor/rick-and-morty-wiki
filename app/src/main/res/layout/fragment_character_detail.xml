@@ -6,6 +6,22 @@
     android:layout_height="match_parent"
     tools:context=".ui.characterDetails.CharacterDetailFragment">
 
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/topAppBarCharacterDetails"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbarCharacterDetails"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:title="@string/title_character_detail" />
+
+    </com.google.android.material.appbar.AppBarLayout>
+
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/tvCharacterNameDetail"
         android:layout_width="0dp"
@@ -18,19 +34,29 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/topAppBarCharacterDetails"
         tools:text="@string/title_characters" />
 
     <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/tvStatusDetail"
-        android:layout_width="0dp"
+        android:id="@+id/tvEpisodesTitle"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/half_margin_default"
-        android:textSize="@dimen/txt_character_status_size_details"
+        android:layout_marginEnd="@dimen/half_margin_default"
+        android:text="@string/title_episodes"
+        app:layout_constraintEnd_toStartOf="@+id/tvEpisodesCount"
+        app:layout_constraintTop_toBottomOf="@id/tvCharacterNameDetail" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/tvEpisodesCount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/half_margin_default"
+        android:layout_marginEnd="@dimen/margin_default"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/tvCharacterNameDetail"
         app:layout_constraintTop_toBottomOf="@id/tvCharacterNameDetail"
-        tools:text="Alive" />
+        tools:text="22" />
+
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/ivCharacterImageDetail"
@@ -40,7 +66,7 @@
         android:contentDescription="@string/cd_character_image"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvStatusDetail"
+        app:layout_constraintTop_toBottomOf="@id/tvEpisodesTitle"
         tools:src="@tools:sample/avatars" />
 
     <com.google.android.material.card.MaterialCardView
@@ -57,23 +83,6 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:padding="@dimen/padding_default">
-
-            <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/tvEpisodesTitle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="@dimen/half_margin_default"
-                android:text="@string/title_episodes"
-                app:layout_constraintEnd_toStartOf="@+id/tvEpisodesCount"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/tvEpisodesCount"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:text="22" />
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/tvSpecie"
@@ -108,6 +117,28 @@
                 tools:text="Genderless" />
 
             <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvStatusTitle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_default"
+                android:text="@string/txt_status"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/tvSpecie"
+                app:layout_constraintTop_toBottomOf="@+id/tvSpecie" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvStatusDetail"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/double_half_margin_default"
+                android:textColor="?attr/colorOnSurface"
+                android:textSize="@dimen/txt_size_details"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/tvSpecie"
+                app:layout_constraintTop_toBottomOf="@id/tvStatusTitle"
+                tools:text="Alive" />
+
+            <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/tvLocationTitle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -115,7 +146,7 @@
                 android:text="@string/txt_last_known_location"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="@+id/tvSpecie"
-                app:layout_constraintTop_toBottomOf="@+id/tvSpecie" />
+                app:layout_constraintTop_toBottomOf="@+id/tvStatusDetail" />
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/tvLocation"

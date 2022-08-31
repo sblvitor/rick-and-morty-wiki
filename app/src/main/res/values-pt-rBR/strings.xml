@@ -19,5 +19,6 @@
     <string name="response_male">Macho</string>
     <string name="response_female">Fêmea</string>
     <string name="response_genderless">Sem genêro</string>
+    <string name="txt_status">Status</string>
 
 </resources>

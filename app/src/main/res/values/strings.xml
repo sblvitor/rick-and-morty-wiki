@@ -5,7 +5,7 @@
     <string name="title_characters">Characters</string>
     <string name="title_locations">Locations</string>
     <string name="title_episodes">Episodes</string>
-    <string name="title_character_detail">Character Detail</string>
+    <string name="title_character_detail">Character Details</string>
     <string name="txt_search">Search</string>
     <string name="cd_character_image">Character image</string>
     <string name="txt_last_known_location">Last known location:</string>
@@ -20,5 +20,6 @@
     <string name="response_male">Male</string>
     <string name="response_female">Female</string>
     <string name="response_genderless">Genderless</string>
+    <string name="txt_status">Status</string>
 
 </resources>

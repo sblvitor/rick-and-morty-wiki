@@ -2,12 +2,12 @@ package com.lira.rickandmortywiki.ui.characters
 
 import android.os.Bundle
 import android.util.Log
-import android.view.*
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.widget.SearchView
-import androidx.core.view.MenuHost
-import androidx.core.view.MenuProvider
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Lifecycle
 import com.lira.rickandmortywiki.R
 import com.lira.rickandmortywiki.core.createProgressDialog
 import com.lira.rickandmortywiki.core.hideSoftKeyboard
@@ -16,7 +16,7 @@ import com.lira.rickandmortywiki.presentation.CharactersViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 
-class CharactersFragment : Fragment() {
+class CharactersFragment : Fragment(), SearchView.OnQueryTextListener {
 
     private val dialog by lazy { createProgressDialog() }
     private val charactersViewModel by viewModel<CharactersViewModel>()
@@ -29,12 +29,15 @@ class CharactersFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
-        setupMenu()
-
-        //charactersViewModel = ViewModelProvider(this)[CharactersViewModel::class.java]
-
         _binding = FragmentCharactersBinding.inflate(inflater, container, false)
-        val root: View = binding.root
+
+        return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        setupMenu()
 
         binding.rvCharacters.adapter = adapter
 
@@ -54,36 +57,41 @@ class CharactersFragment : Fragment() {
                 }
             }
         }
-
-        return root
     }
 
     private fun setupMenu() {
-        val menuHost: MenuHost = requireActivity()
 
-        menuHost.addMenuProvider(object : MenuProvider, SearchView.OnQueryTextListener {
-            override fun onCreateMenu(menu: Menu, menuInflater: MenuInflater) {
-                menuInflater.inflate(R.menu.search_menu, menu)
-                val searchView = menu.findItem(R.id.action_search).actionView as SearchView
-                searchView.setOnQueryTextListener(this)
-            }
+        binding.toolbarCharacters.inflateMenu(R.menu.search_menu)
+        val searchView = binding.toolbarCharacters.menu.findItem(R.id.action_search).actionView as SearchView
+        searchView.setOnQueryTextListener(this)
 
-            override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
-                return true
+        activity?.onBackPressedDispatcher?.addCallback(viewLifecycleOwner, object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                if (!searchView.isIconified) {
+                    binding.toolbarCharacters.collapseActionView()
+                } else {
+                    this.isEnabled = false
+                    activity?.onBackPressed()
+                }
             }
+        })
 
-            override fun onQueryTextSubmit(query: String?): Boolean {
-                Log.e(TAG, "onQueryTextSubmit: $query")
-                query?.let { charactersViewModel.getCharactersByName(it) }
-                binding.root.hideSoftKeyboard()
-                return true
-            }
+    }
 
-            override fun onQueryTextChange(newText: String?): Boolean {
-                Log.e(TAG, "onQueryTextChange: $newText")
-                return false
-            }
-        }, viewLifecycleOwner, Lifecycle.State.RESUMED)
+    override fun onQueryTextSubmit(query: String?): Boolean {
+        Log.e(TAG, "onQueryTextSubmit: $query")
+        query?.let { charactersViewModel.getCharactersByName(it) }
+        binding.root.hideSoftKeyboard()
+        return true
+    }
+
+    override fun onQueryTextChange(newText: String?): Boolean {
+        Log.e(TAG, "onQueryTextChange: $newText")
+        return false
+    }
+
+    companion object{
+        private const val TAG = "TAG"
     }
 
     override fun onDestroyView() {
@@ -91,7 +99,4 @@ class CharactersFragment : Fragment() {
         _binding = null
     }
 
-    companion object{
-        private const val TAG = "TAG"
-    }
 }

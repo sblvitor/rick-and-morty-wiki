@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.findNavController
 import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.Glide
 import com.lira.rickandmortywiki.R
@@ -30,6 +31,8 @@ class CharacterDetailFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        setupMenu()
+
         val character = args.character
 
         binding.apply {
@@ -53,6 +56,15 @@ class CharacterDetailFragment : Fragment() {
 
             tvGender.text = getString(translateResponseText(character.gender))
         }
+    }
+
+    private fun setupMenu() {
+
+        binding.toolbarCharacterDetails.setNavigationIcon(R.drawable.ic_back)
+        binding.toolbarCharacterDetails.setNavigationOnClickListener {
+            requireActivity().findNavController(R.id.nav_host_fragment_activity_main).navigateUp()
+        }
+
     }
 
     override fun onDestroyView() {

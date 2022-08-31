@@ -16,18 +16,6 @@
     </fragment>
 
     <fragment
-        android:id="@+id/navigation_locations"
-        android:name="com.lira.rickandmortywiki.ui.locations.LocationsFragment"
-        android:label="@string/title_locations"
-        tools:layout="@layout/fragment_locations" />
-
-    <fragment
-        android:id="@+id/navigation_episodes"
-        android:name="com.lira.rickandmortywiki.ui.episodes.EpisodesFragment"
-        android:label="@string/title_episodes"
-        tools:layout="@layout/fragment_episodes" />
-
-    <fragment
         android:id="@+id/characterDetailFragment"
         android:name="com.lira.rickandmortywiki.ui.characterDetails.CharacterDetailFragment"
         android:label="@string/title_character_detail"
