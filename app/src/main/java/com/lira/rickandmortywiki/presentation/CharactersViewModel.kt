@@ -18,7 +18,11 @@ class CharactersViewModel(private val listAllCharactersUseCase: ListAllCharacter
     private val _characters = MutableLiveData<State>()
     val characters: LiveData<State> = _characters
 
-    fun getAllCharactersList(){
+    init {
+        getAllCharactersList()
+    }
+
+    private fun getAllCharactersList(){
         viewModelScope.launch {
             listAllCharactersUseCase()
                 .onStart {

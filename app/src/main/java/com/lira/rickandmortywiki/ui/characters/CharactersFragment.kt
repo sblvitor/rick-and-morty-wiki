@@ -43,7 +43,6 @@ class CharactersFragment : Fragment(), SearchView.OnQueryTextListener {
 
         binding.rvCharacters.adapter = adapter
 
-        charactersViewModel.getAllCharactersList()
         charactersViewModel.characters.observe(viewLifecycleOwner) {
             when(it) {
                 CharactersViewModel.State.Loading -> {
