@@ -5,10 +5,12 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.Fragment
 import com.lira.rickandmortywiki.R
+import com.lira.rickandmortywiki.core.createDialog
 import com.lira.rickandmortywiki.core.createProgressDialog
 import com.lira.rickandmortywiki.core.hideSoftKeyboard
 import com.lira.rickandmortywiki.databinding.FragmentCharactersBinding
@@ -50,10 +52,11 @@ class CharactersFragment : Fragment(), SearchView.OnQueryTextListener {
                 }
                 is CharactersViewModel.State.Error -> {
                     dialog.dismiss()
+                    Toast.makeText(requireContext(), "${it.error.message}", Toast.LENGTH_LONG).show()
                 }
                 is CharactersViewModel.State.Success -> {
                     dialog.dismiss()
-                    adapter.submitList(it.list.body()!!.results)
+                    adapter.submitList(it.list.body()?.results)
                 }
             }
         }
@@ -95,6 +98,7 @@ class CharactersFragment : Fragment(), SearchView.OnQueryTextListener {
     }
 
     override fun onDestroyView() {
+        Log.e(TAG, "onDestroyView: now")
         super.onDestroyView()
         _binding = null
     }
