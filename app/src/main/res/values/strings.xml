@@ -21,5 +21,6 @@
     <string name="response_female">Female</string>
     <string name="response_genderless">Genderless</string>
     <string name="txt_status">Status</string>
+    <string name="response_disease">Disease</string>
 
 </resources>

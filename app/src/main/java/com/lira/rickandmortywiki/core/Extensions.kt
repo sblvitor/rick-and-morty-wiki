@@ -49,6 +49,7 @@ fun translateResponseText(text: String): Int {
         "Male" -> R.string.response_male
         "Female" -> R.string.response_female
         "Genderless" -> R.string.response_genderless
+        "Disease" -> R.string.response_disease
         else -> R.string.blank
     }
 }

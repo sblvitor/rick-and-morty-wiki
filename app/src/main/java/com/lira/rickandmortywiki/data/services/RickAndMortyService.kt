@@ -4,6 +4,7 @@ import com.lira.rickandmortywiki.data.model.character.CharacterList
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Query
+import retrofit2.http.Url
 
 interface RickAndMortyService {
 
@@ -13,10 +14,7 @@ interface RickAndMortyService {
     @GET("character")
     suspend fun listCharacterByName(@Query("name") name: String): Response<CharacterList>
 
-    @GET("location")
-    suspend fun listLocations()
-
-    @GET("episode")
-    suspend fun listEpisodes()
+    @GET
+    suspend fun listCharactersFromNextPage(@Url nextPageUrl: String): Response<CharacterList>
 
 }

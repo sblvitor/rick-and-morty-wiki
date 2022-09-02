@@ -20,5 +20,6 @@
     <string name="response_female">Fêmea</string>
     <string name="response_genderless">Sem genêro</string>
     <string name="txt_status">Status</string>
+    <string name="response_disease">Doença</string>
 
 </resources>

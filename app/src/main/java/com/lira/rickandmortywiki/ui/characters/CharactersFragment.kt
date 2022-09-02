@@ -10,7 +10,6 @@ import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.Fragment
 import com.lira.rickandmortywiki.R
-import com.lira.rickandmortywiki.core.createDialog
 import com.lira.rickandmortywiki.core.createProgressDialog
 import com.lira.rickandmortywiki.core.hideSoftKeyboard
 import com.lira.rickandmortywiki.databinding.FragmentCharactersBinding
@@ -56,6 +55,7 @@ class CharactersFragment : Fragment(), SearchView.OnQueryTextListener {
                 is CharactersViewModel.State.Success -> {
                     dialog.dismiss()
                     adapter.submitList(it.list.body()?.results)
+                    checkAndGoToIfNextPage(it.list.body()?.info?.next)
                 }
             }
         }
@@ -78,6 +78,21 @@ class CharactersFragment : Fragment(), SearchView.OnQueryTextListener {
             }
         })
 
+    }
+
+    private fun checkAndGoToIfNextPage(nextUrl: String?): Boolean{
+        if(nextUrl == null){
+            binding.fabNextPage.visibility = View.GONE
+            return false
+        }
+
+        binding.fabNextPage.apply {
+            visibility = View.VISIBLE
+            setOnClickListener {
+                charactersViewModel.getCharactersFromNextPage(nextUrl)
+            }
+        }
+        return true
     }
 
     override fun onQueryTextSubmit(query: String?): Boolean {

@@ -8,4 +8,6 @@ interface CharacterRepository {
     suspend fun listCharacters(): Flow<Response<CharacterList>>
 
     suspend fun listCharacterByName(name: String): Flow<Response<CharacterList>>
+
+    suspend fun listCharactersFromNextPage(nextPageUrl: String): Flow<Response<CharacterList>>
 }
